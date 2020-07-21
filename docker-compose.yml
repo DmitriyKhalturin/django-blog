@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+
+  django:
+    build: .
+    command: >
+      bash -c "pipenv shell
+      python manage.py makemigrations &&
+      python manage.py migrate &&
+      python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - 8000:8000
+    networks:
+      - blog_network
+    env_file:
+      - env/django.env
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:12-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - blog_network
+    env_file:
+      - env/postgres.env
+
+networks:
+  blog_network:
+    driver: bridge
+
+volumes:
+  pg_data:
