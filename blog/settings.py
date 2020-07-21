@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = ')vqx1kwfy@)g*#ujm$9op(gymm(2%3j!ommwp^35ui-p5(2@$z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG')
+DEBUG = os.environ.get('DJANGO_DEBUG', True)
 
 ALLOWED_HOSTS = [
     '*'
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'django_sass_compiler',
     'blog.apps.user.apps.UserConfig',
     'blog.apps.article.apps.ArticleConfig',
     'blog.apps.comment.apps.CommentConfig',
@@ -61,7 +62,7 @@ ROOT_URLCONF = 'blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': (os.path.join(BASE_DIR, 'templates'),),
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,3 +130,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
