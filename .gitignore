@@ -44,6 +44,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
-# Exclude python virtual env
-venv/
