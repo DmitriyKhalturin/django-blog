@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'django_sass_compiler',
+    'django_sass_compiler',
     'blog.apps.user.apps.UserConfig',
     'blog.apps.article.apps.ArticleConfig',
     'blog.apps.comment.apps.CommentConfig',
