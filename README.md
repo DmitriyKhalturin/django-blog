@@ -9,6 +9,26 @@
 pipenv install --ignore-pipfile   # Install dependencies from Pipfile.lock
 ```
 
+#### Configuration
+Save to `env` dir 2 configuration files:
+1. django.env
+```.env
+DJANGO_DEBUG=
+DJANGO_SECRET_KEY=
+DATABASES_NAME=
+DATABASES_USER=
+DATABASES_PASSWORD=
+DATABASES_HOST=
+DATABASES_PORT=
+```
+2. postgres.env
+```.env
+POSTGRES_USER=
+POSTGRES_PASSWORD=
+POSTGRES_DB=
+```
+> These variables are used to service python scripts and configuration postgres docker container.
+
 #### Execution
 ```shell script
 pipenv shell                      # enter to virtual environment
