@@ -1,8 +1,9 @@
 ### Blog on Django
 
 #### Requirements
-* Python 3.8
-* Pipenv
+* [Python 3.8](https://www.python.org/)
+* [Pip](https://pypi.org/project/pip/)
+* [Pipenv](https://github.com/pypa/pipenv)
 
 #### Installation
 ```shell script
@@ -10,6 +11,7 @@ pipenv install --ignore-pipfile   # Install dependencies from Pipfile.lock
 ```
 
 #### Configuration
+Create `env` dir in project root.
 Save to `env` dir 2 configuration files:
 1. django.env
 ```.env
@@ -21,6 +23,10 @@ DATABASES_PASSWORD=
 DATABASES_HOST=
 DATABASES_PORT=
 ```
+> Generate Django SECRET_KEY with [online generator](https://djecrety.ir) or execute command:
+> ```shell script
+> python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key());'
+> ```
 2. postgres.env
 ```.env
 POSTGRES_USER=
